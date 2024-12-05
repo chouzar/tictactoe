@@ -2,10 +2,15 @@ import gleam/dict.{type Dict}
 import gleam/erlang/process
 import gleam/list
 import gleam/option.{type Option, None, Some}
+import gleam/otp/static_supervisor as sup
 import gleam/result.{try_recover as else_try}
 
 pub fn main() {
-  let assert Ok(_) = supervisor()
+  let _supervisor =
+    sup.new(sup.OneForOne)
+    |> sup.add(sup.worker_child("endpoint", phoenix_endpoint))
+    |> sup.start_link
+
   observer()
 
   process.sleep_forever()
@@ -14,7 +19,7 @@ pub fn main() {
 // ----- Supervision Tree ------ //
 
 @external(erlang, "Elixir.TicTacToe.Supervisor", "start")
-fn supervisor() -> phoenix_endpoint
+fn phoenix_endpoint() -> phoenix_endpoint
 
 @external(erlang, "observer", "start")
 fn observer() -> x
