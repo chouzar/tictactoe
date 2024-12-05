@@ -6,6 +6,7 @@ packages = [
   { name = "cowboy", version = "2.12.0", build_tools = ["make", "rebar3"], requirements = ["cowlib", "ranch"], otp_app = "cowboy", source = "hex", outer_checksum = "8A7ABE6D183372CEB21CAA2709BEC928AB2B72E18A3911AA1771639BEF82651E" },
   { name = "cowboy_telemetry", version = "0.4.0", build_tools = ["rebar3"], requirements = ["cowboy", "telemetry"], otp_app = "cowboy_telemetry", source = "hex", outer_checksum = "7D98BAC1EE4565D31B62D59F8823DFD8356A169E7FCBB83831B8A5397404C9DE" },
   { name = "cowlib", version = "2.13.0", build_tools = ["make", "rebar3"], requirements = [], otp_app = "cowlib", source = "hex", outer_checksum = "E1E1284DC3FC030A64B1AD0D8382AE7E99DA46C3246B815318A4B848873800A4" },
+  { name = "gleam_erlang", version = "0.32.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleam_erlang", source = "hex", outer_checksum = "B18643083A0117AC5CFD0C1AEEBE5469071895ECFA426DCC26517A07F6AD9948" },
   { name = "gleam_stdlib", version = "0.45.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "206FCE1A76974AECFC55AEBCD0217D59EDE4E408C016E2CFCCC8FF51278F186E" },
   { name = "gleeunit", version = "1.2.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleeunit", source = "hex", outer_checksum = "F7A7228925D3EE7D0813C922E062BFD6D7E9310F0BEE585D3A42F3307E3CFD13" },
   { name = "jason", version = "1.4.4", build_tools = ["mix"], requirements = ["decimal"], otp_app = "jason", source = "hex", outer_checksum = "C5EB0CAB91F094599F94D55BC63409236A8EC69A21A67814529E8D5F6CC90B3B" },
@@ -25,6 +26,7 @@ packages = [
 ]
 
 [requirements]
+gleam_erlang = { version = ">= 0.32.0 and < 1.0.0" }
 gleam_stdlib = { version = ">= 0.34.0 and < 2.0.0" }
 gleeunit = { version = ">= 1.0.0 and < 2.0.0" }
 jason = { version = ">= 1.0.0 and < 2.0.0" }
