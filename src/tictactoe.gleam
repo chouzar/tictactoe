@@ -1,15 +1,15 @@
 import gleam/dict.{type Dict}
+import gleam/erlang/process
 import gleam/list
 import gleam/option.{type Option, None, Some}
 import gleam/result.{try_recover as else_try}
 
 pub fn main() {
-  start_phoenix()
-  io.println("Hello from tictactoe!")
-}
+  let assert Ok(_) = supervisor()
+  observer()
 
-@external(erlang, "Elixir.TicTacToe.Endpoint", "start_endpoint")
-fn start_phoenix() -> phoenix
+  process.sleep_forever()
+}
 
 // ----- Supervision Tree ------ //
 
